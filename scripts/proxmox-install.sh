@@ -147,12 +147,19 @@ echo "${BRIDGES:-none found}"
 ask BRIDGE "Bridge to attach the CT to" "$(echo "$BRIDGES" | head -n1)"
 
 ask NET_MODE "Networking (dhcp or static)" "dhcp"
+
+if confirm "Enable the per-CT firewall on this interface? (leave off unless you already manage Proxmox firewall rules — otherwise it can silently block the app's port)" n; then
+  CT_FIREWALL=1
+else
+  CT_FIREWALL=0
+fi
+
 if [[ "$NET_MODE" == "static" ]]; then
   ask NET_CIDR "Static IP with CIDR (e.g. 192.168.1.50/24)" "${NET_CIDR:-}"
   ask GATEWAY "Gateway IP" "${GATEWAY:-}"
-  NET0="name=eth0,bridge=${BRIDGE},firewall=1,ip=${NET_CIDR},gw=${GATEWAY}"
+  NET0="name=eth0,bridge=${BRIDGE},firewall=${CT_FIREWALL},ip=${NET_CIDR},gw=${GATEWAY}"
 else
-  NET0="name=eth0,bridge=${BRIDGE},firewall=1,ip=dhcp"
+  NET0="name=eth0,bridge=${BRIDGE},firewall=${CT_FIREWALL},ip=dhcp"
 fi
 
 # ---------------------------------------------------------------------------
@@ -175,6 +182,7 @@ cat <<EOF
   Template storage: $TEMPLATE_STORAGE
   Template        : $TEMPLATE
   Network         : $NET0
+  CT firewall     : $([[ "$CT_FIREWALL" == 1 ]] && echo enabled || echo disabled)
   Repo            : $GIT_REPO ($GIT_BRANCH)
   Game            : $GAME
   App dir / port  : $APP_DIR / $APP_PORT
@@ -273,6 +281,9 @@ cat <<EOF
   Container : $CTID ($HOSTNAME)
   Game      : $GAME
   URL       : http://${CT_IP}:${APP_PORT}
+
+Root shell (no password — attaches via the host):
+  pct enter $CTID
 
 Check status inside the CT with:
   pct exec $CTID -- systemctl status grindstone
