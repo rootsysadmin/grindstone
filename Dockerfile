@@ -25,4 +25,4 @@ COPY --from=build /repo/node_modules node_modules
 COPY --from=build /repo/apps/api/node_modules apps/api/node_modules
 VOLUME ["/data"]
 EXPOSE 3001
-CMD ["node", "apps/api/dist/index.js"]
+CMD ["apps/api/node_modules/.bin/tsx", "apps/api/dist/index.js"]
