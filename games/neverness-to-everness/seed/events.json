@@ -1,0 +1,69 @@
+[
+  {
+    "slug": "circle-bounty",
+    "name": "Circle Bounty",
+    "kind": "Bounty",
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-30",
+    "notes": "Weekly cap 7 clears.",
+    "source": "auto"
+  },
+  {
+    "slug": "volley-star",
+    "name": "Volley Star",
+    "kind": "Minigame",
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-02",
+    "stageCount": 20,
+    "source": "auto"
+  },
+  {
+    "slug": "stamina-recharge",
+    "name": "Stamina Recharge",
+    "kind": "Login event",
+    "startDate": "2026-08-24",
+    "endDate": "2026-08-31",
+    "notes": "Grants 240 stamina total across 5 daily claims.",
+    "source": "auto"
+  },
+  {
+    "slug": "gold-clash",
+    "name": "Gold Clash",
+    "kind": "Rank match",
+    "startDate": "2026-08-31",
+    "endDate": "2026-09-13",
+    "source": "auto"
+  },
+  {
+    "slug": "pixel-surge",
+    "name": "Pixel Surge",
+    "kind": "Event",
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-21",
+    "source": "auto"
+  },
+  {
+    "slug": "beyond-the-rails",
+    "name": "Beyond the Rails",
+    "kind": "Story event",
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-24",
+    "source": "auto"
+  },
+  {
+    "slug": "shipwreck-salvage",
+    "name": "Shipwreck Salvage",
+    "kind": "Event",
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-09",
+    "source": "auto"
+  },
+  {
+    "slug": "surf-breaker",
+    "name": "Surf Breaker",
+    "kind": "Event · milestones",
+    "startDate": "2026-08-22",
+    "endDate": "2026-09-09",
+    "source": "auto"
+  }
+]

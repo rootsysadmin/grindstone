@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "astrite",
+    "name": "Astrite",
+    "category": "Premium",
+    "pullCost": 160,
+    "spendsOn": "All banners",
+    "source": "manual"
+  },
+  {
+    "slug": "radiant-tide",
+    "name": "Radiant Tide",
+    "category": "Pull ticket",
+    "pullCost": 1,
+    "spendsOn": "Limited character banner",
+    "source": "manual"
+  },
+  {
+    "slug": "lustrous-tide",
+    "name": "Lustrous Tide",
+    "category": "Pull ticket",
+    "pullCost": 1,
+    "spendsOn": "Standard banner (character + weapon, shared)",
+    "source": "manual"
+  },
+  {
+    "slug": "forging-tide",
+    "name": "Forging Tide",
+    "category": "Pull ticket",
+    "pullCost": 1,
+    "spendsOn": "Limited weapon banner",
+    "source": "manual"
+  }
+]

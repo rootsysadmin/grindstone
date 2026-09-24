@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "alluring-shadows",
+    "name": "Alluring Shadows",
+    "type": "Character",
+    "featuredCharacterSlug": "zankou",
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-09",
+    "pity": 90,
+    "softPity": 65,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "the-ichi-daime",
+    "name": "The Ichi-Daime",
+    "type": "Character",
+    "featuredCharacterSlug": "nanally",
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-09",
+    "pity": 90,
+    "softPity": 65,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "surfing-all-channels",
+    "name": "Surfing All Channels!",
+    "type": "Character",
+    "featuredCharacterSlug": "linko",
+    "startDate": "2026-09-09",
+    "endDate": "2026-09-30",
+    "pity": 90,
+    "softPity": 65,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "misty-tipsy-style",
+    "name": "Misty Tipsy Style",
+    "type": "Character",
+    "featuredCharacterSlug": "hotori",
+    "startDate": "2026-09-09",
+    "endDate": "2026-09-30",
+    "pity": 90,
+    "softPity": 65,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "spellbound-special",
+    "name": "Spellbound Special",
+    "type": "Arc",
+    "featuredEquipmentSlug": "ravenous-blade",
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-09",
+    "pity": 60,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "chorus-special",
+    "name": "Chorus Special",
+    "type": "Arc",
+    "featuredEquipmentSlug": "voice-of-the-voyager",
+    "startDate": "2026-09-09",
+    "endDate": "2026-09-30",
+    "pity": 60,
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "auto"
+  },
+  {
+    "slug": "standard",
+    "name": "Standard",
+    "type": "Standard",
+    "startDate": "2026-08-19",
+    "fiftyFifty": false,
+    "carriesPity": true,
+    "source": "manual"
+  }
+]

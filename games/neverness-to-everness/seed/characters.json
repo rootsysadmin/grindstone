@@ -1,0 +1,95 @@
+[
+  {
+    "slug": "zankou",
+    "name": "Zankou",
+    "rank": "S",
+    "elementSlug": "incantation",
+    "role": "Main DPS",
+    "releaseDate": "2026-08-19",
+    "ascensionMaterialSlug": "nest-guard-fragment",
+    "maxAugmentSlots": 6,
+    "source": "auto"
+  },
+  {
+    "slug": "iroi",
+    "name": "Iroi",
+    "rank": "S",
+    "elementSlug": "anima",
+    "role": "Support",
+    "releaseDate": "2026-05-02",
+    "ascensionMaterialSlug": "verdant-sap",
+    "maxAugmentSlots": 6,
+    "source": "auto"
+  },
+  {
+    "slug": "shinku",
+    "name": "Shinku",
+    "rank": "S",
+    "elementSlug": "cosmos",
+    "role": "Sub DPS",
+    "releaseDate": "2026-03-14",
+    "ascensionMaterialSlug": "static-bloom",
+    "maxAugmentSlots": 5,
+    "source": "override"
+  },
+  {
+    "slug": "daffodill",
+    "name": "Daffodill",
+    "rank": "S",
+    "elementSlug": "chaos",
+    "role": "Main DPS",
+    "releaseDate": "2026-07-01",
+    "ascensionMaterialSlug": "crimson-filament",
+    "maxAugmentSlots": 6,
+    "source": "auto"
+  },
+  {
+    "slug": "jiuyuan",
+    "name": "Jiuyuan",
+    "rank": "A",
+    "elementSlug": "lakshana",
+    "role": "Healer",
+    "releaseDate": "2026-01-22",
+    "ascensionMaterialSlug": "verdant-sap",
+    "maxAugmentSlots": 4,
+    "source": "auto"
+  },
+  {
+    "slug": "blackbird",
+    "name": "Blackbird",
+    "rank": "S",
+    "source": "manual",
+    "status": "draft"
+  },
+  {
+    "slug": "linko",
+    "name": "Linko",
+    "rank": "S",
+    "elementSlug": "anima",
+    "role": "Main DPS",
+    "releaseDate": "2026-09-09",
+    "ascensionMaterialSlug": "static-bloom",
+    "maxAugmentSlots": 8,
+    "source": "manual"
+  },
+  {
+    "slug": "hotori",
+    "name": "Hotori",
+    "rank": "S",
+    "elementSlug": "cosmos",
+    "role": "Support",
+    "releaseDate": "2026-02-11",
+    "ascensionMaterialSlug": "static-bloom",
+    "maxAugmentSlots": 5,
+    "source": "auto"
+  },
+  {
+    "slug": "nanally",
+    "name": "Nanally",
+    "rank": "S",
+    "elementSlug": "anima",
+    "role": "Main DPS",
+    "maxAugmentSlots": 6,
+    "source": "auto"
+  }
+]

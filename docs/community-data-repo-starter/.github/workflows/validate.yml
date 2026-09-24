@@ -1,0 +1,24 @@
+name: Validate update files
+
+on:
+  pull_request:
+    paths:
+      - "games/**/*.json"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List changed JSON files
+        id: changed
+        run: |
+          git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- 'games/**/*.json' > changed.txt
+          echo "count=$(wc -l < changed.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Validate
+        if: steps.changed.outputs.count != '0'
+        run: node scripts/validate.mjs $(cat changed.txt)

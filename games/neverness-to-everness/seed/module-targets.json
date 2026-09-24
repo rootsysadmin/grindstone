@@ -1,0 +1,24 @@
+[
+  {
+    "moduleSlug": "crimson-twin-butterflies",
+    "forCharacterSlug": "zankou",
+    "label": "Crit build",
+    "mainStatTarget": "CRIT DMG",
+    "substats": "[{\"stat\":\"CRIT Rate\",\"value\":\"7.0%\"},{\"stat\":\"CRIT DMG\",\"value\":\"14.0%\"},{\"stat\":\"ATK%\",\"value\":\"5.8%\"},{\"stat\":\"Incantation DMG\",\"value\":\"4.5%\"}]"
+  },
+  {
+    "moduleSlug": "crimson-twin-butterflies",
+    "forCharacterSlug": "daffodill",
+    "label": "Crit build (second copy)",
+    "mainStatTarget": "CRIT DMG",
+    "substats": "[{\"stat\":\"CRIT Rate\",\"value\":\"7.0%\"},{\"stat\":\"CRIT DMG\",\"value\":\"14.0%\"},{\"stat\":\"ATK%\",\"value\":\"5.8%\"},{\"stat\":\"Chaos DMG\",\"value\":\"4.5%\"}]",
+    "notes": "Same shape as Zankou's copy, different element substat — needs its own farmed piece, not shared."
+  },
+  {
+    "moduleSlug": "lost-radiance",
+    "forCharacterSlug": "zankou",
+    "label": "ATK build",
+    "mainStatTarget": "ATK%",
+    "substats": "[{\"stat\":\"ATK%\",\"value\":\"5.8%\"},{\"stat\":\"CRIT Rate\",\"value\":\"7.0%\"},{\"stat\":\"CRIT DMG\",\"value\":\"14.0%\"}]"
+  }
+]

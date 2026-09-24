@@ -1,0 +1,21 @@
+{
+  "name": "grindstone",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel --filter ./apps/* dev",
+    "dev:api": "pnpm --filter @grindstone/api dev",
+    "dev:web": "pnpm --filter @grindstone/web dev",
+    "build": "pnpm --filter @grindstone/api build && pnpm --filter @grindstone/web build",
+    "start": "node apps/api/dist/index.js",
+    "db:generate": "pnpm --filter @grindstone/api db:generate",
+    "db:migrate": "pnpm --filter @grindstone/api db:migrate",
+    "db:seed": "pnpm --filter @grindstone/api db:seed",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9"
+}

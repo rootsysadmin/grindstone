@@ -1,0 +1,8 @@
+[
+  { "slug": "incantation", "name": "Incantation", "colour": "#f0b44a", "shortCode": "Incant" },
+  { "slug": "anima", "name": "Anima", "colour": "#5fd08a", "shortCode": "Anima" },
+  { "slug": "cosmos", "name": "Cosmos", "colour": "#58b7f0", "shortCode": "Cosmos" },
+  { "slug": "chaos", "name": "Chaos", "colour": "#e8639b", "shortCode": "Chaos" },
+  { "slug": "lakshana", "name": "Lakshana", "colour": "#a084f5", "shortCode": "Laksh" },
+  { "slug": "psyche", "name": "Psyche", "colour": "#4ecdc4", "shortCode": "Psyche" }
+]

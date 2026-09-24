@@ -1,0 +1,14 @@
+[
+  { "slug": "crimson-filament", "name": "Crimson Filament", "tier": "3", "category": "Boss Material" },
+  { "slug": "senior-hunter-guide", "name": "Senior Hunter Guide", "tier": "3", "category": "Skill Material" },
+  { "slug": "elite-hunter-guide", "name": "Elite Hunter Guide", "tier": "2", "category": "Skill Material" },
+  { "slug": "ashen-beetle-shell", "name": "Ashen Beetle Shell", "tier": "1", "category": "World Material" },
+  { "slug": "module-tuning-kit", "name": "Module tuning kit", "tier": "3", "category": "Module Material", "weeklyCap": 2 },
+  { "slug": "light-dye", "name": "Light Dye", "tier": "2", "category": "World Material" },
+  { "slug": "sovereign-ashes", "name": "Sovereign Ashes", "tier": "4", "category": "Boss Material", "weeklyCap": 3 },
+  { "slug": "static-bloom", "name": "Static Bloom", "tier": "3", "category": "Ascension Material" },
+  { "slug": "verdant-sap", "name": "Verdant Sap", "tier": "3", "category": "Ascension Material" },
+  { "slug": "nest-guard-fragment", "name": "Nest Guard Fragment", "tier": "4", "category": "Ascension Material" },
+  { "slug": "spiral-tune", "name": "Spiral Tune", "tier": "3", "category": "Arc Ascension Material" },
+  { "slug": "numeral", "name": "Numeral", "tier": "2", "category": "Arc Ascension Material" }
+]

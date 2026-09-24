@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "gift-of-thawing-frost",
+    "name": "Gift of Thawing Frost",
+    "kind": "Login",
+    "startDate": "2024-05-23",
+    "endDate": "2024-05-29",
+    "notes": "7-day v1.0 launch login event; grants Lustrous Tide and a free copy of the 4★ resonator Sanhua. End date inferred as start+7 days, not independently confirmed — see progress.md. The schema has no way to record a character grant as a reward (eventRewards only models currency/material), which is a real gap this event surfaced.",
+    "source": "manual"
+  }
+]

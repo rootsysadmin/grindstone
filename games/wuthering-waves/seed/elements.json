@@ -1,0 +1,8 @@
+[
+  { "slug": "aero", "name": "Aero", "source": "manual" },
+  { "slug": "electro", "name": "Electro", "source": "manual" },
+  { "slug": "fusion", "name": "Fusion", "source": "manual" },
+  { "slug": "glacio", "name": "Glacio", "source": "manual" },
+  { "slug": "havoc", "name": "Havoc", "source": "manual" },
+  { "slug": "spectro", "name": "Spectro", "source": "manual" }
+]

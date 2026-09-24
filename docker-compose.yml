@@ -1,0 +1,13 @@
+services:
+  grindstone:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - GAME=neverness-to-everness
+      - DATA_DIR=/data
+    volumes:
+      - grindstone-data:/data
+
+volumes:
+  grindstone-data:

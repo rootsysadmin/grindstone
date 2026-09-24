@@ -1,0 +1,111 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788194238285,
+      "tag": "0000_tranquil_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788239813832,
+      "tag": "0001_youthful_demogoblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1788253966932,
+      "tag": "0002_damp_thundra",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1788329845673,
+      "tag": "0003_strange_young_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1788343834927,
+      "tag": "0004_uneven_phantom_reporter",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1788347491524,
+      "tag": "0005_spotty_radioactive_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1788351268365,
+      "tag": "0006_zippy_shinko_yamashiro",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1788597073184,
+      "tag": "0007_condemned_nemesis",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1788675175572,
+      "tag": "0008_wise_blonde_phantom",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1788675494927,
+      "tag": "0009_brainy_the_watchers",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1788782559357,
+      "tag": "0010_real_madame_web",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1789212357840,
+      "tag": "0011_lying_mac_gargan",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1789274015051,
+      "tag": "0012_flowery_night_thrasher",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1789313672548,
+      "tag": "0013_material_zemo",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "6",
+      "when": 1789322690187,
+      "tag": "0014_cheerful_proudstar",
+      "breakpoints": true
+    }
+  ]
+}

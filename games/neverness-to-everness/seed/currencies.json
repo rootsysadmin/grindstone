@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "annulith",
+    "name": "Annulith",
+    "category": "Premium",
+    "shortCode": "ANNU",
+    "pullCost": 160,
+    "spendsOn": "All banners",
+    "source": "auto"
+  },
+  {
+    "slug": "solid-dice",
+    "name": "Solid Dice",
+    "category": "Pull ticket",
+    "pullCost": 1,
+    "spendsOn": "Limited character banner",
+    "source": "auto"
+  },
+  {
+    "slug": "fabricated-dice",
+    "name": "Fabricated Dice",
+    "category": "Pull ticket",
+    "pullCost": 1,
+    "spendsOn": "Standard banner",
+    "source": "auto"
+  },
+  {
+    "slug": "tri-key",
+    "name": "Tri-Key",
+    "category": "Pull ticket",
+    "spendsOn": "Arc/weapon banner — spends as one 10-pull, not a per-pull cost (doesn't fit the pullCost field cleanly, see progress.md)",
+    "source": "auto"
+  }
+]

@@ -1,0 +1,1 @@
+ALTER TABLE `module_targets` ADD `achieved_at` integer;

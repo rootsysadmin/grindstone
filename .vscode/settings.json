@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "grindstone",
+            "database": "${workspaceFolder:grindstone}/data/grindstone.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

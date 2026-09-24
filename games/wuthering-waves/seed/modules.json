@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "void-thunder",
+    "name": "Void Thunder",
+    "pieceType": "Main Echo",
+    "slot": "4",
+    "source": "manual"
+  },
+  {
+    "slug": "moonlit-clouds",
+    "name": "Moonlit Clouds",
+    "pieceType": "Main Echo",
+    "slot": "4",
+    "source": "manual"
+  },
+  {
+    "slug": "rejuvenating-glow",
+    "name": "Rejuvenating Glow",
+    "pieceType": "Main Echo",
+    "slot": "4",
+    "source": "manual"
+  }
+]

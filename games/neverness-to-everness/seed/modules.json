@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "crimson-twin-butterflies",
+    "name": "Crimson: Twin Butterflies",
+    "pieceType": "Cartridge",
+    "maxLevel": 15,
+    "source": "manual"
+  },
+  {
+    "slug": "lost-radiance",
+    "name": "Lost Radiance",
+    "pieceType": "Cartridge",
+    "maxLevel": 15,
+    "source": "manual"
+  }
+]

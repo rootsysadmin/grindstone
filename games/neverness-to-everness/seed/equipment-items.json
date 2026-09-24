@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "ravenous-blade",
+    "name": "Ravenous Blade",
+    "rank": "S",
+    "type": "Gas",
+    "mainStat": "CRIT DMG 66.2%",
+    "passiveText": "+8% DMG per Bleed stack",
+    "source": "auto"
+  },
+  {
+    "slug": "voice-of-the-voyager",
+    "name": "Voice of the Voyager",
+    "rank": "S",
+    "type": "Liquid",
+    "mainStat": "ATK 12.0%",
+    "passiveText": "Ultimate heals the team for 6% HP",
+    "source": "auto"
+  },
+  {
+    "slug": "fluff-of-ferocity",
+    "name": "Fluff of Ferocity",
+    "rank": "A",
+    "type": "Plasma",
+    "mainStat": "CRIT rate 8.0%",
+    "passiveText": "+15 Esper energy on swap-in",
+    "source": "auto"
+  },
+  {
+    "slug": "day-off",
+    "name": "Day Off",
+    "rank": "A",
+    "type": "Gas",
+    "mainStat": "HP 9.6%",
+    "passiveText": "Shield 12% HP after Ultimate",
+    "source": "override"
+  },
+  {
+    "slug": "the-wrong-gate",
+    "name": "The Wrong Gate",
+    "rank": "S",
+    "source": "manual",
+    "status": "draft"
+  },
+  {
+    "slug": "rusted-signal",
+    "name": "Rusted Signal",
+    "rank": "B",
+    "type": "Liquid",
+    "mainStat": "DEF 10.4%",
+    "passiveText": "none",
+    "source": "auto"
+  }
+]

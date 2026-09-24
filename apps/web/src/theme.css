@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Tells the browser this UI is dark so native controls (select's option
+     popup, date pickers, scrollbars) render with dark chrome instead of
+     defaulting to light-on-light. Per-component styling on <select>/<option>
+     can't reach that native popup, so this has to be global. */
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #07080b;
+  color: #e6e8ee;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #58b7f0;
+  text-decoration: none;
+}
+a:hover {
+  color: #8ed0f8;
+}

@@ -1,0 +1,7 @@
+[
+  { "eventSlug": "circle-bounty", "kind": "currency", "currencySlug": "annulith", "quantity": 140 },
+  { "eventSlug": "volley-star", "kind": "currency", "currencySlug": "annulith", "quantity": 600 },
+  { "eventSlug": "shipwreck-salvage", "kind": "currency", "currencySlug": "annulith", "quantity": 800 },
+  { "eventSlug": "surf-breaker", "kind": "currency", "currencySlug": "annulith", "quantity": 400 },
+  { "eventSlug": "surf-breaker", "kind": "material", "materialSlug": "light-dye", "quantity": 5 }
+]

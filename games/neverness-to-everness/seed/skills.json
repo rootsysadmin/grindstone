@@ -1,0 +1,9 @@
+[
+  { "slug": "zankou-crimson-cut", "name": "Crimson Cut", "characterSlug": "zankou", "slot": "Basic", "source": "auto" },
+  { "slug": "zankou-nightshade", "name": "Nightshade", "characterSlug": "zankou", "slot": "Esper", "source": "auto" },
+  { "slug": "zankou-ravenous-bloom", "name": "Ravenous Bloom", "characterSlug": "zankou", "slot": "Ultimate", "source": "auto" },
+  { "slug": "zankou-underboss", "name": "Underboss", "characterSlug": "zankou", "slot": "Passive", "source": "auto" },
+  { "slug": "blackbird-talon-sweep", "name": "Talon Sweep", "characterSlug": "blackbird", "slot": "Basic", "source": "manual", "status": "draft" },
+  { "slug": "blackbird-nightfall-dive", "name": "Nightfall Dive", "characterSlug": "blackbird", "slot": "Esper", "source": "manual", "status": "draft" },
+  { "slug": "blackbird-murder-of-crows", "name": "Murder of Crows", "characterSlug": "blackbird", "slot": "Ultimate", "source": "manual", "status": "draft" }
+]

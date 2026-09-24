@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "thawborn-renewal",
+    "name": "Thawborn Renewal",
+    "type": "Limited Character",
+    "featuredCharacterSlug": "jinhsi",
+    "startDate": "2025-05-22",
+    "endDate": "2025-06-11",
+    "pity": 80,
+    "softPity": 66,
+    "fiftyFifty": true,
+    "carriesPity": true,
+    "source": "manual"
+  }
+]

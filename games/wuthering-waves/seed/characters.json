@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "jinhsi",
+    "name": "Jinhsi",
+    "rank": "5\u2605",
+    "elementSlug": "spectro",
+    "releaseDate": "2024-06-28",
+    "ascensionMaterialSlug": "loongs-pearl",
+    "source": "manual",
+    "maxAugmentSlots": 5
+  },
+  {
+    "slug": "changli",
+    "name": "Changli",
+    "rank": "5\u2605",
+    "elementSlug": "fusion",
+    "releaseDate": "2024-07-22",
+    "ascensionMaterialSlug": "pavo-plum",
+    "source": "manual",
+    "maxAugmentSlots": 5
+  },
+  {
+    "slug": "xiangli-yao",
+    "name": "Xiangli Yao",
+    "rank": "5\u2605",
+    "elementSlug": "electro",
+    "releaseDate": "2024-09-04",
+    "ascensionMaterialSlug": "violet-coral",
+    "source": "manual",
+    "maxAugmentSlots": 5
+  },
+  {
+    "slug": "zhezhi",
+    "name": "Zhezhi",
+    "rank": "5\u2605",
+    "elementSlug": "glacio",
+    "source": "manual",
+    "maxAugmentSlots": 5
+  },
+  {
+    "slug": "carlotta",
+    "name": "Carlotta",
+    "rank": "5\u2605",
+    "elementSlug": "glacio",
+    "source": "manual",
+    "maxAugmentSlots": 5
+  }
+]
