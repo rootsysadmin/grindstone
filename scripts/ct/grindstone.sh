@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 #
-# Grindstone — Proxmox VE LXC provisioner (community-scripts-style, self-contained)
+# Grindstone — Proxmox VE LXC provisioner, single self-contained file.
 #
-# Run ON THE PROXMOX HOST as root. Creates an unprivileged Debian/Ubuntu CT,
-# then pushes scripts/install/grindstone-install.sh into it and runs it there.
+# Run ON THE PROXMOX HOST as root, either:
+#   bash scripts/ct/grindstone.sh
+# or piped straight from GitHub (no local checkout needed):
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/rootsysadmin/grindstone/main/scripts/ct/grindstone.sh)"
 #
-# Every setting below is interactive with an editable default — nothing here
-# assumes a template, storage name, or bridge you may not actually have.
-# Pre-set any of them via env var to skip that prompt, e.g.:
+# Everything below is interactive with an editable default — nothing assumes
+# a template, storage name, or bridge you may not actually have. Pre-set any
+# of them via env var to skip that prompt, e.g.:
 #   CTID=150 HOSTNAME=grindstone bash scripts/ct/grindstone.sh
+#
+# One file on purpose: this is meant to be run via `curl | bash`, where
+# there's no second file on disk to reference (a two-file ct+install split
+# doesn't work for that invocation style). The in-container install logic
+# below is embedded and streamed into the CT over `pct exec`.
 #
 set -Eeuo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALL_SCRIPT="${SCRIPT_DIR}/../install/grindstone-install.sh"
-
 # ---------------------------------------------------------------------------
-# Look and feel (community-scripts style)
+# Look and feel
 # ---------------------------------------------------------------------------
 YW=$'\033[33m'; GN=$'\033[1;92m'; RD=$'\033[01;31m'; BL=$'\033[36m'; CL=$'\033[m'
 msg_info()  { echo -e " ${YW}○${CL} ${1}"; }
@@ -35,10 +39,7 @@ EOF
   echo -e "${CL}"
 }
 
-fail() {
-  msg_error "${1}"
-  exit 1
-}
+fail() { msg_error "${1}"; exit 1; }
 trap 'fail "Unexpected error at line $LINENO"' ERR
 
 ask() {
@@ -65,7 +66,6 @@ header_info
 # ---------------------------------------------------------------------------
 command -v pveversion >/dev/null 2>&1 || fail "This must run on a Proxmox VE host (pveversion not found)."
 [[ $EUID -eq 0 ]] || fail "Run this as root on the Proxmox host."
-[[ -f "$INSTALL_SCRIPT" ]] || fail "Missing ${INSTALL_SCRIPT} — run this script from within the grindstone repo."
 
 # ---------------------------------------------------------------------------
 # Container identity / sizing
@@ -215,11 +215,136 @@ done
 msg_ok "Network is up inside the CT"
 
 # ---------------------------------------------------------------------------
-# Push and run the install script inside the CT
+# In-container install script, embedded so this stays one file even when
+# run via `curl | bash` with no local checkout to reference.
 # ---------------------------------------------------------------------------
-msg_info "Pushing install script into CT $CTID"
-pct push "$CTID" "$INSTALL_SCRIPT" /root/grindstone-install.sh --perms 755 || fail "pct push failed."
-msg_ok "Pushed install script"
+read -r -d '' INSTALL_SCRIPT <<'GRINDSTONE_INSTALL_EOF' || true
+set -Eeuo pipefail
+
+YW=$'\033[33m'; GN=$'\033[1;92m'; RD=$'\033[01;31m'; CL=$'\033[m'
+BFR="\\r\\033[K"
+msg_info() { echo -ne " ${YW}○${CL} ${1}...\r"; }
+msg_ok()   { echo -e "${BFR} ${GN}✓${CL} ${1}"; }
+msg_error(){ echo -e "${BFR} ${RD}✗${CL} ${1}"; }
+
+LOG_FILE="/root/grindstone-install.log"
+: > "$LOG_FILE"
+
+run() {
+  if ! "$@" >>"$LOG_FILE" 2>&1; then
+    return 1
+  fi
+}
+
+fail() {
+  msg_error "Install failed: ${1}. Last 30 lines of ${LOG_FILE}:"
+  tail -n 30 "$LOG_FILE" 2>/dev/null || true
+  exit 1
+}
+trap 'fail "unexpected error at line $LINENO"' ERR
+
+GIT_REPO="${GIT_REPO:?GIT_REPO not set}"
+GIT_BRANCH="${GIT_BRANCH:-main}"
+GAME="${GAME:-neverness-to-everness}"
+APP_DIR="${APP_DIR:-/opt/grindstone}"
+APP_PORT="${APP_PORT:-3001}"
+NODE_VERSION="${NODE_VERSION:-20}"
+
+msg_info "Updating package index"
+export DEBIAN_FRONTEND=noninteractive
+run apt-get update || fail "apt-get update"
+msg_ok "Updated package index"
+
+msg_info "Installing base packages"
+run apt-get install -y curl git ca-certificates || fail "apt-get install base packages"
+msg_ok "Installed base packages"
+
+msg_info "Installing Node.js ${NODE_VERSION}.x"
+run bash -c "curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -" || fail "NodeSource setup"
+run apt-get install -y nodejs || fail "apt-get install nodejs"
+msg_ok "Installed Node.js $(node -v 2>/dev/null || echo "${NODE_VERSION}.x")"
+
+msg_info "Enabling corepack"
+run corepack enable || fail "corepack enable"
+msg_ok "Enabled corepack"
+
+msg_info "Cloning ${GIT_REPO} (${GIT_BRANCH})"
+if [[ -d "$APP_DIR/.git" ]]; then
+  run git -C "$APP_DIR" fetch --depth 1 origin "$GIT_BRANCH" || fail "git fetch"
+  run git -C "$APP_DIR" reset --hard "origin/${GIT_BRANCH}" || fail "git reset"
+else
+  run git clone --branch "$GIT_BRANCH" --depth 1 "$GIT_REPO" "$APP_DIR" || fail "git clone"
+fi
+msg_ok "Cloned repo into ${APP_DIR}"
+
+msg_info "Installing dependencies (pnpm install) — this can take a few minutes"
+run bash -c "cd '$APP_DIR' && pnpm install --frozen-lockfile" || fail "pnpm install"
+msg_ok "Installed dependencies"
+
+msg_info "Building (pnpm build)"
+run bash -c "cd '$APP_DIR' && pnpm build" || fail "pnpm build"
+msg_ok "Built app"
+
+mkdir -p "$APP_DIR/data/images"
+
+if [[ ! -f "$APP_DIR/apps/api/dist/index.js" ]]; then
+  msg_error "Build finished but ${APP_DIR}/apps/api/dist/index.js is missing — see ${LOG_FILE}"
+  exit 1
+fi
+
+msg_info "Creating systemd service"
+cat > /etc/systemd/system/grindstone.service <<EOF
+[Unit]
+Description=Grindstone
+After=network.target
+
+[Service]
+Type=simple
+Environment=NODE_ENV=production
+Environment=GAME=${GAME}
+Environment=PORT=${APP_PORT}
+Environment=DATA_DIR=${APP_DIR}/data
+WorkingDirectory=${APP_DIR}
+ExecStart=${APP_DIR}/apps/api/node_modules/.bin/tsx ${APP_DIR}/apps/api/dist/index.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+run systemctl daemon-reload || fail "systemctl daemon-reload"
+run systemctl enable --now grindstone || fail "systemctl enable grindstone"
+msg_ok "Created and started grindstone.service"
+
+msg_info "Verifying the app is listening on :${APP_PORT}"
+LISTENING=0
+for i in $(seq 1 15); do
+  if ss -tln 2>/dev/null | grep -q ":${APP_PORT} "; then
+    LISTENING=1
+    break
+  fi
+  sleep 1
+done
+if [[ "$LISTENING" -eq 1 ]]; then
+  msg_ok "App is listening on :${APP_PORT}"
+else
+  msg_error "Nothing is listening on :${APP_PORT} after 15s. journalctl -u grindstone:"
+  journalctl -u grindstone --no-pager -n 40 || true
+  exit 1
+fi
+
+msg_info "Enabling passwordless root console login"
+mkdir -p /etc/systemd/system/container-getty@1.service.d
+cat > /etc/systemd/system/container-getty@1.service.d/override.conf <<'INNER_EOF'
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root --noreset --noclear - $TERM
+INNER_EOF
+run systemctl daemon-reload || true
+msg_ok "Console will auto-login as root (pct console <ctid>)"
+
+msg_ok "Grindstone install complete"
+GRINDSTONE_INSTALL_EOF
 
 echo
 echo "-- Running install inside the CT (this streams live, can take a few minutes) --"
@@ -230,7 +355,7 @@ if ! pct exec "$CTID" -- env \
   GAME="$GAME" \
   APP_DIR="$APP_DIR" \
   APP_PORT="$APP_PORT" \
-  bash /root/grindstone-install.sh; then
+  bash -c "$INSTALL_SCRIPT"; then
   fail "Install failed inside the CT — see the output above (also saved at /root/grindstone-install.log inside CT $CTID: pct exec $CTID -- cat /root/grindstone-install.log)."
 fi
 
@@ -253,11 +378,5 @@ Console (auto-logs in as root, no password prompt):
 Check status inside the CT with:
   pct exec $CTID -- systemctl status grindstone
   pct exec $CTID -- journalctl -u grindstone -f
-
-Re-run this script against the same CTID to redeploy after a git update
-(it will fail on "CTID already exists" — destroy first with 'pct destroy $CTID --purge'
- if you want a clean rebuild, or just re-push manually):
-  pct push $CTID scripts/install/grindstone-install.sh /root/grindstone-install.sh --perms 755
-  pct exec $CTID -- env GIT_REPO="$GIT_REPO" GIT_BRANCH="$GIT_BRANCH" GAME="$GAME" APP_DIR="$APP_DIR" APP_PORT="$APP_PORT" bash /root/grindstone-install.sh
 
 EOF

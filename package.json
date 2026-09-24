@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --parallel --filter ./apps/* dev",
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
     "dev:api": "pnpm --filter @grindstone/api dev",
     "dev:web": "pnpm --filter @grindstone/web dev",
     "build": "pnpm --filter @grindstone/api build && pnpm --filter @grindstone/web build",

@@ -60,13 +60,13 @@ See [docker-compose.yml](docker-compose.yml) / [Dockerfile](Dockerfile) — data
 
 ### Proxmox LXC
 
-`scripts/ct/grindstone.sh` (run on the Proxmox host) provisions a fresh unprivileged CT — interactively prompting for CTID, storage, template, network, etc. instead of assuming names you may not have — then pushes `scripts/install/grindstone-install.sh` into it, which installs Node, builds Grindstone, and runs it as a systemd service (auto-starts on CT/host boot, restarts on crash):
+`scripts/ct/grindstone.sh` is a single self-contained script — run it on the Proxmox host, either from a checkout or piped straight from GitHub:
 
 ```
-bash scripts/ct/grindstone.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rootsysadmin/grindstone/main/scripts/ct/grindstone.sh)"
 ```
 
-Every prompt has an editable default and can be pre-filled via env var (`CTID=150 bash scripts/ct/grindstone.sh`). Root console login is passwordless (`pct console <ctid>` auto-logs in; `pct enter <ctid>` always works without one).
+It interactively prompts for CTID, storage, template, network, etc. instead of assuming names you may not have, creates an unprivileged CT, then installs Node, builds Grindstone, and runs it as a systemd service (auto-starts on CT/host boot, restarts on crash). Every prompt has an editable default and can be pre-filled via env var (`CTID=150 bash scripts/ct/grindstone.sh`). Root console login is passwordless (`pct console <ctid>` auto-logs in; `pct enter <ctid>` always works without one).
 
 ## Repo map
 
